@@ -37,5 +37,6 @@ Route::group(['prefix' => 'me'], function() {
 Route::group(['prefix' => 'todos'], function () {
     Route::get('', [TodoController::class, 'index']);
     Route::post('', [TodoController::class, 'store']);
-
+    Route::put('{todo}', [TodoController::class, 'update']);
+    Route::delete('{todo}', [TodoController::class, 'destroy']);
 });
