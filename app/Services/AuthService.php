@@ -93,6 +93,6 @@ class  AuthService {
 
         PasswordReset::where('email', $email)->delete();
 
-        return 'Deu certo brother!';
+        return $user;
     }
 }
