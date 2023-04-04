@@ -30,4 +30,5 @@ Route::group(['prefix' => 'v1'], function() {
 
 Route::group(['prefix' => 'me'], function() {
     Route::get('', [MeController::class, 'index']);
+    Route::put('', [MeController::class, 'update']);
 });
