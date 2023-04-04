@@ -26,6 +26,11 @@ class User extends Authenticatable implements JWTSubject
         'confirmation_token',
     ];
 
+
+    public function todos() {
+        return $this->hasMany(Todo::class);
+    }
+
     /**
      * The attributes that should be hidden for serialization.
      *
@@ -68,10 +73,5 @@ class User extends Authenticatable implements JWTSubject
     public function getJWTCustomClaims()
     {
         return [];
-    }
-
-
-    public function todos() {
-        return $this->hasMany(Todo::class);
     }
 }
