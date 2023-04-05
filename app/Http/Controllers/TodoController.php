@@ -26,11 +26,14 @@ class TodoController extends Controller
 
 
     public function show(Todo $todo) {
+        $this->authorize('view', $todo);
+
         $todo->load('tasks');
         return new TodoResource($todo);
     }
 
     public function store(TodoStoreRequest $request) {
+        
         $input = $request->validated();
 
         $todo = auth()->user()->todos()->create($input);
@@ -39,6 +42,8 @@ class TodoController extends Controller
     }
 
     public function update(Todo $todo, TodoUdpateRequest $request) {
+        $this->authorize('update', $todo);
+
         $input = $request->validated();
 
         $todo->fill($input);
@@ -48,10 +53,14 @@ class TodoController extends Controller
     }
 
     public function destroy(Todo $todo) {
+        $this->authorize('destroy', $todo);
+
         $todo->delete();
     }
 
     public function addTask(Todo $todo, TodoTaskStoreRequest $request) {
+        $this->authorize('addTask', $todo);
+
         $input = $request->validated();
         $todoTask = $todo->tasks()->create($input);
 
