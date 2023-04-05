@@ -14,6 +14,6 @@ class TodoTask extends Model
     ];
 
     public function todo() {
-        return $this->belongsTo(Task::class);
+        return $this->belongsTo(Todo::class);
     }
 }
