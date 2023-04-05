@@ -46,4 +46,5 @@ Route::group(['prefix' => 'todos'], function () {
 
 Route::group(['prefix' => 'todo-task'], function () {
     Route::put('{todoTask}', [TodoTaskController::class, 'update']);
+    Route::delete('{todoTask}', [TodoTaskController::class, 'destroy']);
 });
